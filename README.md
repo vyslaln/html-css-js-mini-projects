@@ -7,7 +7,7 @@ Each project lives in its own folder with its own README, screenshot and live de
 
 | # | Project | Live Demo | What I practiced |
 |---|---------|-----------|------------------|
-| 01 | [Quiz App](./01-quiz-app) | Coming soon | |
+|| 01 | [Quiz App](./01-quiz-app) | [Live Demo](https://vyslaln.github.io/html-css-js-mini-projects/01-quiz-app/) | Arrays of objects, DOM, events, textContent |
 
 ## How to run
 
