@@ -58,3 +58,37 @@ const quizData = [
     }
 ];
 
+//HTML'de tanımlı olan soru (h2) ve cevap (label) id'lerini buraya çekiyoruz. / Get the question (h2) and answer (label) elements defined in the HTML by their ids.
+
+//Soru / Question
+const questionEl = document.getElementById('question');
+
+//Cevaplar / Answers
+const answerA = document.getElementById('a_text');
+const answerB = document.getElementById('b_text');
+const answerC = document.getElementById('c_text');
+const answerD = document.getElementById('d_text');
+const answerE = document.getElementById('e_text');
+
+//Burada sayacı tanımlıyoruz. / Define the counter here.
+let currentQuiz = 0;
+
+//Burada skoru tanımlıyoruz. / Define the score here.
+let score = 0;
+
+//Burada soruyu ve cevap şıklarını ekrana yazdıracak olan fonksiyonu tanımlıyoruz. / Define the function that displays the question and answers.
+function loadQuiz(){
+    const currentQuizData = quizData[currentQuiz];
+
+    //Burada artık soruyu ekrana yazdırıyoruz. / Display the question on the screen
+    questionEl.textContent = currentQuizData.question;
+
+     //Burada artık cevapları ekrana yazdırıyoruz. / Display the answers on the screen
+    answerA.textContent = currentQuizData.a;
+    answerB.textContent = currentQuizData.b;
+    answerC.textContent = currentQuizData.c;
+    answerD.textContent = currentQuizData.d;
+    answerE.textContent = currentQuizData.e;
+}
+
+loadQuiz();
