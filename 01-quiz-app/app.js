@@ -79,6 +79,9 @@ let currentQuiz = 0;
 //Burada skoru tanımlıyoruz. / Define the score here.
 let score = 0;
 
+//Burada artık butonun tanımlamasını yapıyoruz / Get the submit button
+const submitBtn = document.getElementById('submit');
+
 //Burada soruyu ve cevap şıklarını ekrana yazdıracak olan fonksiyonu tanımlıyoruz. / Define the function that displays the question and answers.
 function loadQuiz(){
     const currentQuizData = quizData[currentQuiz];
@@ -112,6 +115,25 @@ function getSelected(){
     // seçili şıkkın id’sini döndürüyoruz, hiçbiri seçili değilse undefined / return the selected id, or undefined if none is selected
     return answer;
 }
+
+//Burada Cevapla butonuna bir olay ekliyoruz. / Run this code when the submit button is clicked
+submitBtn.addEventListener('click', function(){
+
+    // getSelected ile seçilen şıkkı alıp answer'da tutuyoruz / Get the selected option with getSelected and store it in answer
+    const answer = getSelected();
+
+    // Kullanıcı bir şık seçtiyse devam ediyoruz / Continue only if an option is selected
+    if(answer){
+
+        // Seçilen şık doğru cevapla aynıysa skoru 1 artırıyoruz / If the answer is correct, increase the score by 1
+        if(answer === quizData[currentQuiz].correct){
+            score++;
+        }
+
+        // Sonraki soruya geçmek için sayacı 1 artırıyoruz / Increase the counter to move to the next question
+        currentQuiz++;
+    }
+});
 
 // İlk soruyu ekrana getirmek için fonksiyonu çağırıyoruz / Call the function to display the first question on the screen
 loadQuiz();
