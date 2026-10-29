@@ -84,6 +84,9 @@ const submitBtn = document.getElementById('submit');
 
 //Burada soruyu ve cevap şıklarını ekrana yazdıracak olan fonksiyonu tanımlıyoruz. / Define the function that displays the question and answers.
 function loadQuiz(){
+    // Yeni soru gelmeden önce önceki seçimi temizliyoruz / Clear the previous selection before the new question
+    deselectAnswers();
+
     const currentQuizData = quizData[currentQuiz];
 
     //Burada artık soruyu ekrana yazdırıyoruz. / Display the question on the screen
@@ -95,6 +98,13 @@ function loadQuiz(){
     answerC.textContent = currentQuizData.c;
     answerD.textContent = currentQuizData.d;
     answerE.textContent = currentQuizData.e;
+}
+
+// Bütün şıkların seçimini kaldıran fonksiyonu tanımlıyoruz / Uncheck all options
+function deselectAnswers(){
+    answerEls.forEach(answerEl => {
+        answerEl.checked = false;
+    });
 }
 
 // seçilen şıkkı bulup id'sini döndüren fonksiyonu tanımlıyoruz / find the selected choice and return its id
@@ -132,6 +142,11 @@ submitBtn.addEventListener('click', function(){
 
         // Sonraki soruya geçmek için sayacı 1 artırıyoruz / Increase the counter to move to the next question
         currentQuiz++;
+
+        // Hâlâ soru varsa sonrakini yüklüyoruz / Load the next question if there is one
+        if(currentQuiz < quizData.length){
+            loadQuiz();
+        }
     }
 });
 
