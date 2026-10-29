@@ -70,6 +70,9 @@ const answerC = document.getElementById('c_text');
 const answerD = document.getElementById('d_text');
 const answerE = document.getElementById('e_text');
 
+// answer class'ına sahip bütün radio input'ları seçiyoruz / select all radio inputs with the answer class
+const answerEls = document.querySelectorAll('.answer');
+
 //Burada sayacı tanımlıyoruz. / Define the counter here.
 let currentQuiz = 0;
 
@@ -91,4 +94,24 @@ function loadQuiz(){
     answerE.textContent = currentQuizData.e;
 }
 
+// seçilen şıkkı bulup id'sini döndüren fonksiyonu tanımlıyoruz / find the selected choice and return its id
+function getSelected(){
+
+   // Seçili şıkkın id'sini tutacak değişken, ilk tanımlandığında boş / Holds the id of the selected option, empty at first
+    let answer;
+
+    // A'dan E'ye kadar şıkları tek tek geziyoruz / Loop through each option from A to E
+    answerEls.forEach(answerEl => {
+
+        // bu şık seçiliyse id'sini answer değişkenine kaydediyoruz / if this option is checked, store its id in answer.
+        if(answerEl.checked){
+            answer = answerEl.id;
+        }
+    });
+
+    // seçili şıkkın id’sini döndürüyoruz, hiçbiri seçili değilse undefined / return the selected id, or undefined if none is selected
+    return answer;
+}
+
+// İlk soruyu ekrana getirmek için fonksiyonu çağırıyoruz / Call the function to display the first question on the screen
 loadQuiz();
