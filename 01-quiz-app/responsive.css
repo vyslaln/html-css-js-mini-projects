@@ -1,0 +1,20 @@
+/* Küçük ekranlar için düzenlemeler / Adjustments for small screens */
+@media (max-width: 500px){
+
+    /* Başlık küçülsün ve kenarlara yapışmasın / Smaller title with side space */
+    h1{
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    /* Kart ekrandan taşmasın / Keep the card inside the screen */
+    .quiz-container{
+        width: 90%;
+    }
+
+    /* Kartın iç boşluğu biraz azalsın / Less inner space in the card */
+    .quiz-header{
+        padding: 1.5rem;
+    }
+}

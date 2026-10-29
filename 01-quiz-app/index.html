@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts: Poppins / Load the Poppins font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <title>Front End Bilgi Yarışması</title>
+
+    <!-- harici css dosyasını bağlıyoruz / link the external css file -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- quiz'in başlığını tanımlıyoruz / define the quiz title -->
+    <h1>Front End Bilgi Yarışması</h1>
+
+    <!-- quiz'in kartını oluşturuyoruz / create the quiz card  -->
+    <div class="quiz-container" id="quiz">
+
+        <!-- quiz kartının gövdesini oluşturuyoruz / create the quiz card body  -->
+        <div class="quiz-header">
+
+            <!-- Soruyu bu etiketin içerisine yazdırıyoruz. / display the question inside this tag -->
+            <h2 id="question">Soru buraya gelecek</h2>
+
+            <!-- Cevapları da buraya tanımlıyoruz / define the answers here  -->
+            <ul>
+                <!-- A şıkkı için / For option A -->
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="a_text">Cevap A</label>
+                </li>
+
+                <!-- B şıkkı için / For option B -->
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="b_text">Cevap B</label>
+                </li>
+
+                <!-- C şıkkı için / For option C -->
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="c_text">Cevap C</label>
+                </li>
+
+                <!-- D şıkkı için / For option D -->
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="d_text">Cevap D</label>
+                </li>
+
+                <!-- E şıkkı için / For option E -->
+                <li>
+                    <input type="radio" name="answer" id="e" class="answer">
+                    <label for="e" id="e_text">Cevap E</label>
+                </li>
+            </ul>
+        </div>
+        <!-- Cevabı onaylama butonu / button to submit the answer -->
+        <button id="submit">Cevapla</button>
+    </div>
+
+    <!-- harici js dosyasını bağlıyoruz / link the external js file -->
+    <script src="app.js"></script>
+</body>
+</html>
