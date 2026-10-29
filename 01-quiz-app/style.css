@@ -50,8 +50,8 @@ h1{
     margin: 5px 0;
 }
 
-/* buton tasarımı / styles for the button */
-#submit {
+/* buton tasarımı / styles for the buttons */
+#submit, #restart {
     width: 100%;
     padding: 10px 20px;
     background-color: #2e7d32;
@@ -62,6 +62,6 @@ h1{
     cursor: pointer;
 }
 
-#submit:hover{
+#submit:hover, #restart:hover{
     background-color: #1b5e20;
 }

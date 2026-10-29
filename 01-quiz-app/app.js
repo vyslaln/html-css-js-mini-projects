@@ -58,6 +58,9 @@ const quizData = [
     }
 ];
 
+//Quiz kartı / Quiz card
+const quiz = document.getElementById('quiz');
+
 //HTML'de tanımlı olan soru (h2) ve cevap (label) id'lerini buraya çekiyoruz. / Get the question (h2) and answer (label) elements defined in the HTML by their ids.
 
 //Soru / Question
@@ -126,6 +129,34 @@ function getSelected(){
     return answer;
 }
 
+// Sonuç ekranını gösteren fonksiyonu tanımlıyoruz / Show the result screen
+function showResult(){
+
+    // Sonucu yazacağımız kutu, kartın iç tasarımını alsın diye quiz-header class'ı veriyoruz / Box for the result, uses the quiz-header styles
+    const resultBox = document.createElement('div');
+    resultBox.className = 'quiz-header';
+
+    // Sonuç yazısı / Result text
+    const resultText = document.createElement('h2');
+    resultText.textContent = `${quizData.length} sorudan ${score} tanesini doğru bildin`;
+
+    // Tekrar başla butonu / Restart button
+    const restartBtn = document.createElement('button');
+    restartBtn.id = 'restart';
+    restartBtn.textContent = 'Tekrar Başla';
+
+    // Butona tıklanınca sayfayı yeniliyoruz, quiz baştan başlıyor / Reload the page on click to restart the quiz
+    restartBtn.addEventListener('click', function(){
+        location.reload();
+    });
+
+    // Yazıyı kutunun içine koyuyoruz / Put the text inside the box
+    resultBox.appendChild(resultText);
+
+    // Kartın içini boşaltıp yerine sonuç kutusunu ve butonu koyuyoruz / Replace the card content with the result box and the button
+    quiz.replaceChildren(resultBox, restartBtn);
+}
+
 //Burada Cevapla butonuna bir olay ekliyoruz. / Run this code when the submit button is clicked
 submitBtn.addEventListener('click', function(){
 
@@ -143,9 +174,11 @@ submitBtn.addEventListener('click', function(){
         // Sonraki soruya geçmek için sayacı 1 artırıyoruz / Increase the counter to move to the next question
         currentQuiz++;
 
-        // Hâlâ soru varsa sonrakini yüklüyoruz / Load the next question if there is one
+        // Hâlâ soru varsa sonrakini yüklüyoruz, yoksa sonucu gösteriyoruz / Load the next question if there is one, otherwise show the result
         if(currentQuiz < quizData.length){
             loadQuiz();
+        } else {
+            showResult();
         }
     }
 });
