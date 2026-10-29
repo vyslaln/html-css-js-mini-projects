@@ -49,3 +49,19 @@ h1{
 .quiz-header ul li{
     margin: 5px 0;
 }
+
+/* buton tasarımı / styles for the button */
+#submit {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color: #1b5e20;
+}
